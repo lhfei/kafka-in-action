@@ -1,0 +1,32 @@
+server:
+  port: 12000
+  servlet:
+    context-path: /
+logging:
+  level:
+    '[.]': info
+    '[cn.lhfei.kafka]': info
+    '[org.springframework]': info
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+spring:
+  kafka:
+    consumer:
+      group-id: test
+      auto-offset-reset: earliest
+    # change this property if you are using your own
+    # Kafka cluster or your Docker IP is different
+    #bootstrap-servers: 192.168.134.92:9092
+    bootstrap-servers: 11.91.142.3:9092,11.91.142.4:9092,11.91.142.5:9092
+
+## Kafka Topics 
+kafka:  topics:
+    message: "lhfei"    greeting: "greeting"
+    filtered: "t_filtered"
+    partitioned: "t_partitioned"
+
+## API Docs
+swagger:
+  enabled: true
+
